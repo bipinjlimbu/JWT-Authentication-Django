@@ -60,4 +60,4 @@ def login_view(request):
             return Response({'error': 'Invalid username or password.'}, status=status.HTTP_401_UNAUTHORIZED)
         
         token = get_token_for_user(user)
-        return Response({"msg": "Login successful.", "token": token, "user": user}, status=status.HTTP_200_OK)
+        return Response({"msg": "Login successful.", "token": token, "user": UserSerializer(user).data}, status=status.HTTP_200_OK)
