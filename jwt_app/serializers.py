@@ -8,8 +8,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email']
         
 class ProductSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
-    
     class Meta:
         model = Product
         fields = ['id', 'title', 'price', 'user', 'created_at']
